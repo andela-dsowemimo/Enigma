@@ -10,8 +10,8 @@ class Decrypt
   extend Validation
 
   def self.decrypt_file(read_to_file, write_to_file, key, date)
-    return check_file? read_to_file unless File.exist? read_to_file
-    if key_is_valid?(key) && date_is_valid?(date)
+    return is_file? read_to_file unless File.exist? read_to_file
+    if is_valid_key?(key) && is_valid_date?(date)
       message = read_file(read_to_file)
       decrypted_message = decrypt(message, key, date)
       write_file(write_to_file, decrypted_message)
