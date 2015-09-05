@@ -20,4 +20,8 @@ module FileWorker
   def print_success_message(destination_file, keys)
     puts "Created '#{destination_file}' with the key #{keys[0]} and date #{keys[1]}"
   end
+
+  def print_failure_message
+    puts "File doesn't exist!"
+  end
 end

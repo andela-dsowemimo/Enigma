@@ -35,4 +35,11 @@ describe Encrypt do
     date = "231299"
     expect(Encrypt.encryption_key(key, date)).to eq [21, 49, 56, 66]
   end
+
+  it "should return unsupported letters" do
+    message= "@!#$%*()"
+    key = 12345
+    date = "121290"
+    expect(Encrypt.encrypt(message, key, date)).to eq message
+  end
 end

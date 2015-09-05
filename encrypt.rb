@@ -10,7 +10,8 @@ class Encrypt
   extend Validation
 
     def self.encrypt_file(source_file, destination_file)
-      return check_file? source_file unless File.exist? source_file
+      print_failure_message unless File.exist? source_file
+      return unless check_file?(source_file)
       message = read_file(source_file)
       keys= generate_key_and_date
       encrypted_message = encrypt(message, keys[0], keys[1])

@@ -7,9 +7,8 @@ module Encryption
     encrypted_message = letters.collect do |letter|
       index += 1
       index = 0 if index == 4
-      encrypt_letter(letter, rotation[index])
+      letter = supported_characters.include?(letter) ? encrypt_letter(letter, rotation[index]) : letter
     end
     encrypted_message.join
   end
-
 end
